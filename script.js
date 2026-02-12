@@ -21,6 +21,7 @@ function resultados(datos) {
   datos.forEach(usuario => {
     const usuarioDiv = document.createElement("tr");
     usuarioDiv.innerHTML = `
+      <td>${usuario.name}</td>
       <td>${usuario.username}</td>
       <td>${usuario.id}</td>
       <td>${usuario.email}</td>

@@ -18,14 +18,10 @@
 
 
   <h1 class="mb-4">AJAX con API externa</h1>
-  <button onclick="fetchJSON()">Prueba</button>
-
 
   <!-- Buscador -->
 
   <input type="text" id="busqueda" class="form-control mb-3" placeholder="Buscar por nombre">
-
-
 
   <!-- Ordenación -->
 
@@ -37,8 +33,6 @@
 
   </select>
 
-
-
   <!-- Resultados -->
 
   <div id="resultado">
@@ -46,6 +40,7 @@
       <thead class="table-dark">
         <tr>
           <th>Nombre</th>
+          <th>Username</th>
           <th>ID</th>
           <th>Email</th>
           <th>Ciudad</th>
@@ -61,7 +56,6 @@
     </table>
   </div>
 
-
   <!-- Paginación -->
 
   <div class="mt-4">
@@ -69,8 +63,6 @@
     <p>Mostrando x resultados de y totales</p>
 
   </div>
-
-
 
   <div class="mt-4">
 
@@ -83,8 +75,6 @@
     <button id="next" class="btn btn-secondary">Ir última</button>
 
   </div>
-
-
 
   <script src="script.js"></script>
 
