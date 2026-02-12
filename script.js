@@ -37,3 +37,23 @@ function resultados(datos) {
 }
 
 fetchJSON();
+
+// Filtrar según lo que se escriba en el input, por nombre o por ciudad
+const input = document.getElementById("busqueda");
+
+input.addEventListener("input", () => {
+  // Pasamos a minúsculas
+  const textoUsuario = inputBusqueda.value.toLowerCase();
+
+  // Filtramos
+  const usuariosFiltrados = datosJSON.filter(usuario => {
+  const nombre = usuario.name.toLowerCase();
+  const ciudad = usuario.address.city.toLowerCase();
+
+  // Comprobamos si el texto está en el nombre O en la ciudad
+  return nombre.includes(textoUsuario) || ciudad.includes(textoUsuario);
+  });
+  // Volvemos a llamar a la función, pero ahora está el array filtrado
+  resultados(usuariosFiltrados);
+
+});
