@@ -23,9 +23,7 @@
 
   <!-- Buscador -->
 
-  <input type="text" id="busqueda" class="form-control mb-3"
-
-      placeholder="Buscar por nombre">
+  <input type="text" id="busqueda" class="form-control mb-3" placeholder="Buscar por nombre">
 
 
 
@@ -43,15 +41,32 @@
 
   <!-- Resultados -->
 
-  <div id="resultado"></div>
-
+  <div id="resultado">
+    <table class="table table-striped table-hover mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Ciudad</th>
+          <th>Calle</th>
+          <th>Suite</th>
+          <th>Zip Code</th>
+          <th>Geo: lat</th>
+          <th>Geo: lng</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+      </tbody>
+    </table>
+  </div>
 
 
   <!-- Paginación -->
 
   <div class="mt-4">
 
-  <p>Mostrando x resultados de y totales</p>
+    <p>Mostrando x resultados de y totales</p>
 
   </div>
 
@@ -59,7 +74,7 @@
 
   <div class="mt-4">
 
-  <button id="prev" class="btn btn-secondary">Ir primera</button>
+    <button id="prev" class="btn btn-secondary">Ir primera</button>
 
     <button id="prev" class="btn btn-secondary">Anterior</button>
 
