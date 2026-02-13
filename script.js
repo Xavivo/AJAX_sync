@@ -38,22 +38,45 @@ function resultados(datos) {
 
 fetchJSON();
 
-// Filtrar según lo que se escriba en el input, por nombre o por ciudad
+// búsqueda: por defecto nombre, pero se puede cambiar con el dropdown
+let modoBusqueda = 'name'; // 'name' ó 'city'
+
 const input = document.getElementById("busqueda");
+const dropdownLabel = document.getElementById('buttonBuscador');
 
+// manejar selección del dropdown
+const buscarNombre = document.getElementById('searchByName');
+const buscarCiudad = document.getElementById('searchByCity');
+
+buscarNombre.addEventListener('click', e => {
+  e.preventDefault();
+  modoBusqueda = 'name';
+  dropdownLabel.textContent = 'Buscar por nombre';
+  input.placeholder = 'Buscar por nombre';
+  input.value = '';
+  resultados(datosJSON);
+});
+
+buscarCiudad.addEventListener('click', e => {
+  e.preventDefault();
+  modoBusqueda = 'city';
+  dropdownLabel.textContent = 'Buscar por ciudad';
+  input.placeholder = 'Buscar por ciudad';
+  input.value = '';
+  resultados(datosJSON);
+});
+
+// filtrar cuando el usuario escriba
 input.addEventListener("input", () => {
-  // Pasamos a minúsculas
-  const textoUsuario = inputBusqueda.value.toLowerCase();
+  const textoUsuario = input.value.toLowerCase();
 
-  // Filtramos
   const usuariosFiltrados = datosJSON.filter(usuario => {
-  const nombre = usuario.name.toLowerCase();
-  const ciudad = usuario.address.city.toLowerCase();
-
-  // Comprobamos si el texto está en el nombre O en la ciudad
-  return nombre.includes(textoUsuario) || ciudad.includes(textoUsuario);
+    if (modoBusqueda === 'name') {
+      return usuario.name.toLowerCase().includes(textoUsuario);
+    } else {
+      return usuario.address.city.toLowerCase().includes(textoUsuario);
+    }
   });
-  // Volvemos a llamar a la función, pero ahora está el array filtrado
-  resultados(usuariosFiltrados);
 
+  resultados(usuariosFiltrados);
 });
