@@ -5,6 +5,7 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>AJAX Avanzado</title>
 
@@ -21,10 +22,13 @@
 
   <h1 class="mb-4">AJAX con API externa</h1>
 
+  <!-- Loader -->
+  <div id="loader" class="alert alert-info d-none">Cargando los datos!</div>
+
   <!-- Buscador -->
   <div class="input-group mb-3">
     <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre">
-    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="buttonBuscador" data-bs-toggle="dropdown" aria-expanded="false">Button</button>
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="buttonBuscador" data-bs-toggle="dropdown" aria-expanded="false">Buscar</button>
     <ul class="dropdown-menu dropdown-menu-end">
       <li><a id="searchByName" class="dropdown-item" href="#">Buscar por nombre</a></li>
       <li><a id="searchByCity" class="dropdown-item" href="#">Buscar por ciudad</a></li>
